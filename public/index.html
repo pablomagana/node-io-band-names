@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Server</title>
+</head>
+
+<body>
+    <h1>cargando</h1>
+    <script src="socket.io/socket.io.js"></script>
+
+    <script>
+        let socket = io();
+
+        socket.on('connect', () => {
+            console.log("conected")
+        })
+
+        socket.on('disconnect', () => {
+            console.log("not conected")
+        })
+
+        socket.on('mensaje', (mensaje) => {
+            console.log("detectado mensaje pendiente: " + mensaje.admin)
+        })
+
+        socket.emit('mensaje', { name: "pablo" })
+    </script>
+</body>
+
+</html>
