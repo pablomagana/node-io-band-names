@@ -26,6 +26,10 @@
             console.log("detectado mensaje pendiente: " + mensaje.admin)
         })
 
+        socket.on('nuevo-mensaje', (payload) => {
+            console.log("nuevo mensaje", payload);
+        })
+
         socket.emit('mensaje', { name: "pablo" })
     </script>
 </body>
